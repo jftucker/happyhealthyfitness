@@ -9,6 +9,9 @@ verify_ssl = true
 django = "*"
 gunicorn = "*"
 whitenoise = "*"
+django-crispy-forms = "*"
+django-sendgrid-v5 = "*"
+sendgrid = "*"
 
 [requires]
 python_version = "3.7"

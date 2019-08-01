@@ -38,6 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+
+    # 3rd Party
+    'crispy_forms',
+
+    # Local
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
 ]
@@ -125,7 +130,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'staticfiles')]
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
@@ -133,4 +138,15 @@ LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'home'
 
-SECURE_SSL_REDIRECT = True
+# be sure to turn this back on, perhaps set up an environment variable which will detect the page being run locally?
+SECURE_SSL_REDIRECT = False
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey' # this is exactly the value 'apikey'
+EMAIL_HOST_PASSWORD = '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' # this is your API key
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'tucker@happyhealthy.fitness' # this is the sendgrid email
