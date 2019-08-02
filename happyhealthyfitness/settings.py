@@ -149,4 +149,4 @@ EMAIL_HOST_USER = 'apikey' # this is exactly the value 'apikey'
 EMAIL_HOST_PASSWORD = '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' # this is your API key
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'tucker@happyhealthy.fitness' # this is the sendgrid email
+DEFAULT_FROM_EMAIL = 'Webmaster from happyhealthy.fitness <webmaster@happyhealthy.fitness>' # this is the sendgrid email
