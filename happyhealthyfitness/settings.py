@@ -41,6 +41,8 @@ INSTALLED_APPS = [
 
     # 3rd Party
     'crispy_forms',
+    'rest_framework',
+    'rest_framework.authtoken',
 
     # Local
     'users.apps.UsersConfig',
@@ -151,3 +153,13 @@ EMAIL_HOST_PASSWORD = 'SG.IrIlfN09RBy8NYZ8Kb0tqg.ZHk9f2ydsEdj186bhR6sMiwDmmFZRrO
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'Webmaster from happyhealthy.fitness <webmaster@happyhealthy.fitness>' # this is the sendgrid email
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}

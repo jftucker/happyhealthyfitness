@@ -12,6 +12,7 @@ whitenoise = "*"
 django-crispy-forms = "*"
 django-sendgrid-v5 = "*"
 sendgrid = "*"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.7"
