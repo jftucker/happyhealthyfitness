@@ -24,7 +24,7 @@ class ArticleDetailView(LoginRequiredMixin, DetailView):
 class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Article
     fields = ('title', 'body',)
-    template_name = 'article_update.html'
+    template_name = 'article_edit.html'
     login_url = 'login'
 
     def test_func(self):

@@ -15,6 +15,10 @@ sendgrid = "*"
 djangorestframework = "*"
 django-rest-auth = "*"
 django-allauth = "*"
+coreapi = "*"
+pyyaml = "*"
+django-rest-swagger = "*"
+django-ckeditor = "*"
 
 [requires]
 python_version = "3.7"
