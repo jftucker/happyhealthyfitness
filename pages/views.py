@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from articles.models import Article
 from .forms import ContactForm
 
-from django.core.mail import send_mail, BadHeaderError
+from django.core.mail import EmailMessage, BadHeaderError
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
@@ -27,12 +27,20 @@ class HomePageView(ListView):
     def post(self, request, **kwargs):
         form = ContactForm(self.request.POST)
         if form.is_valid():
-            subject = form.cleaned_data['name'] + ' sent a message through hire.johntucker.me!'
-            from_email = form.cleaned_data['email']
-            message = form.cleaned_data['message']
+            subject = 'Thanks for joining the happyhealthy.fitness family!'
+            to_email = form.cleaned_data['email']
+            from_email = 'Tucker at HHF <tucker@happyhealthy.fitness>'
+            message = "We are so happy that you've decided to start a new fit lifestyle! Be sure to verify your email with us and join the mailing list for updates and support on your journey!"
             try:
-                send_mail(subject, message, from_email, ['hire@johntucker.me'])
+                email = EmailMessage(
+                    subject,
+                    message,
+                    from_email,
+                    [to_email],
+                )
+                email.attach_file('static/images/logo.png')
+                email.send()
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            messages.success(request, 'Your message was sent!')
+            messages.success(request, "Check your email for our eBook!")
             return redirect('home')
