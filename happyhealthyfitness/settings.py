@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # 3rd Party
     'crispy_forms',
     'ckeditor',
+    'extra_views',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_swagger',

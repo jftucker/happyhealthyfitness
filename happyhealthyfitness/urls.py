@@ -17,9 +17,8 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.views.generic.base import TemplateView
 from allauth.account.views import confirm_email
-from rest_framework.schemas import get_schema_view
-
-schema_view = get_schema_view(title='Happy Healthy Fitness API')
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,4 +31,4 @@ urlpatterns = [
     path('api/v1/', include('apis.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('', include('pages.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

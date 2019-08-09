@@ -19,6 +19,8 @@ coreapi = "*"
 pyyaml = "*"
 django-rest-swagger = "*"
 django-ckeditor = "*"
+django-extra-views = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.7"
