@@ -3,5 +3,9 @@ from django.db import models
 
 
 class CustomUser(AbstractUser):
-    age = models.PositiveIntegerField(null=True, blank=True)
+    from_frontpage = models.BooleanField(default=False)
+    on_newsletter = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return self.email
     

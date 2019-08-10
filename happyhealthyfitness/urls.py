@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
     path('users/', include('django.contrib.auth.urls')),
+    path('accounts/', include('allauth.urls')),
     path('articles/', include('articles.urls')),
     path('api/v1/rest-auth/registration/account-confirm-email/<str:key>/', confirm_email, name='account_confirm_email'),
     path('api/v1/rest-auth/registration/', include('rest_auth.registration.urls')),
