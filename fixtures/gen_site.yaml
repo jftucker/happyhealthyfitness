@@ -1,0 +1,5 @@
+- model: sites.Site
+  pk: 2
+  fields:
+    domain: happyhealthy.fitness
+    name: Happy Healthy Fitness
