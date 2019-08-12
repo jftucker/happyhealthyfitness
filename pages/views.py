@@ -31,26 +31,6 @@ class HomePageView(ListView):
     def post(self, request, **kwargs):
         form = ContactForm(self.request.POST)
         if form.is_valid():
-            subject = 'Thanks for joining the happyhealthy.fitness family!'
-            to_email = form.cleaned_data['email']
-            from_email = 'Tucker at HHF <tucker@happyhealthy.fitness>'
-            message = "We are so happy that you've decided to start a new fit lifestyle! Be sure to verify your email with us and join the mailing list for updates and support on your journey!"
-            html_content = "<h1><a href=\"happyhealthy.fitness\">Happy Healthy Fitness</a></h1><p>We are so happy that you've decided to start a new fit lifestyle! Be sure to verify your email with us and join the mailing list for updates and support on your journey!</p>"
-            '''
-            try:
-                email = EmailMultiAlternatives(
-                    subject,
-                    message,
-                    from_email,
-                    [to_email],
-                )
-                email.attach_file('static/images/logo.png')
-                email.attach_alternative(html_content, "text/html")
-                email.send()
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
-            messages.success(request, "Check your email for our eBook!")
-            '''
             new_user = get_user_model().objects.create_user(
                 username=form.cleaned_data['email'],
                 email=form.cleaned_data['email'],
@@ -62,7 +42,7 @@ class HomePageView(ListView):
             EmailAddress.objects.create(user=new_user, email=new_user.email, primary=True, verified=False)
             send_email_confirmation(request, new_user)
 
-            return redirect('home')
+            return redirect('ebook')
 
 
 class EbookPageView(TemplateView):
