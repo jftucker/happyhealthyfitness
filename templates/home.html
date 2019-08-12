@@ -4,7 +4,7 @@
 <title>Happy Healthy Fitness</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+<link rel="shortcut icon" href="{%  static 'images/favicon.png' %}">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -136,30 +136,36 @@ body, html {
 
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="about">
-  <h1 class="w3-center">DOWNLOAD OUR EBOOK</h1>
+  <h1 class="w3-center">DROP THE WEIGHTS AND GET IN SHAPE</h1>
   <div class="w3-row">
-    <div class="w3-col m6 w3-center w3-padding-large">
-      <img src="{% static 'images/profile.jpg' %}" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
-    </div>
-
     <!-- Hide this text on small devices -->
-    <div class="w3-col m6 w3-padding-large">
-      <p class="w3-large">Get your fitness journey started with our free ebook!
+    <div class="w3-col m12 w3-padding-large">
+      <p class="w3-large">Drop the Weights can be done anywhere and does not require an expensive
+        gym membership or long hours on a treadmill.
       </p>
-      <form method="post">
-          {% csrf_token %}  
-        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-          <div class="w3-half">
-            {{ contact_form.email }}<!--<input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">-->
-          </div>
-          <div class="w3-half">
-            <input class="w3-input w3-border" type="checkbox" required name="Newsletter">
-          </div>
-        </div>
-        <button class="w3-button w3-green w3-hover-light-green w3-right w3-section" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND ME THAT BOOK!
-        </button>
-      </form>
+      <p class="w3-large">
+        It will take intentional effort to achieve the body you want, but we are here
+        to help you!
+      </p>
+      <p class="w3-large">
+        Drop the Weights includes the following:
+        <ul class="w3-large">
+          <li>Fitness Test</li>
+          <li>Workout programs for: Upper Body, Lower Body, Cardio, Core, and</li>
+          <li>Stretching.</li>
+          <li>30 day workout schedule</li>
+          <li>Meal Planner</li>
+        </ul>
+      </p>
+      <p class="w3-large">
+        Drop the Weights is perfect for new athletes, people with busy schedules, pr
+        someone who does not have a gym membership. By following this step-by-
+        step guide you will see results!
+      </p>
+      <p class="w3-large">
+        We have one goal with this program: After 30 days, to look and feel the best
+        by dropping the weights!
+      </p>
     </div>
   </div>
 </div>
@@ -172,26 +178,26 @@ body, html {
 </div>
 
 <!-- Container (Portfolio Section) -->
-<div class="w3-content w3-container w3-padding-64" id="portfolio">
-  <h3 class="w3-center">ARTICLES</h3>
-  <p class="w3-center"><em>Articles tag line</em></p><br>
+<div class="w3-content w3-container w3-padding-64">
 
   <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-  <div class="w3-center w3-cell-row">
-      {% for article in all_articles %}
-      <div class="w3-quarter w3-display-container w3-cell w3-dark-grey" style="overflow:hidden;height:150px">
-        <a href="{% url 'article_detail' article.pk %}"><img src="{{ article.images.all.0.image.url }}" style="width:100%" class="w3-opacity w3-display-middle w3-hover-opacity-off" alt="{{ article.images.all.0.title }}"></a>
-        <div class="w3-display-topleft" style="white-space:nowrap;">
-            <span class="w3-center w3-padding-small w3-dark-grey w3-medium w3-animate-opacity">
-                {{ article.title }}
-            </span>
+  <div class="w3-center">
+  {% for article in all_articles %}
+    <a href="{% url 'article_detail' article.pk %}">
+      <div class="w3-quarter w3-opacity-min w3-hover-opacity-off w3-display-container w3-dark-grey w3-margin" style="overflow:hidden;height:150px">
+        <img src="{{ article.images.all.0.image.url }}" style="width:100%" class="w3-display-middle" alt="{{ article.images.all.0.title }}">
+        <div class="w3-display-middle w3-quarter" style="white-space:normal;width:100%">
+          <span class="w3-center w3-padding-small w3-text-white w3-large w3-medium w3-quarter w3-border-top w3-border-bottom w3-border-green" style="width:100%;background: rgb(0, 0, 0);background: rgba(0, 0, 0, 0.5);">
+            {{ article.title }}
+          </span>
         </div>
       </div>
-        {% if forloop.counter|divisibleby:4 %}
+    </a>
+    {% if forloop.counter|divisibleby:4 %}
   </div>
   <div class="w3-center w3-cell-row">
-      {% endif %}
-    {% endfor %}
+    {% endif %}
+  {% endfor %}
   </div>
 </div>
 
@@ -208,7 +214,7 @@ body, html {
 <!-- Third Parallax Image with Portfolio Text -->
 <div class="bgimg-3 w3-display-container w3-opacity-min">
   <div class="w3-display-middle">
-     <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
+     <span class="w3-xxlarge w3-text-white w3-wide">START NOW</span>
   </div>
 </div>
 
@@ -256,6 +262,7 @@ body, html {
   <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
   <div class="w3-xlarge w3-section">
     <a href="https://www.facebook.com/happyhealthyfitness" class="w3-text-light-grey"><i class="fab fa-facebook-f w3-hover-opacity"></i></a>
+    <a href="https://www.instagram.com/happyhealthyfitness.llc/" class="w3-text-light-grey"><i class="fab fa-instagram w3-hover-opacity"></i></a>
   </div>
 </footer>
  

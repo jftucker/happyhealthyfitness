@@ -38,7 +38,7 @@ class ArticleListView(LoginRequiredMixin, ListView):
     login_url = 'login'
 
 
-class ArticleDetailView(LoginRequiredMixin, DetailView):
+class ArticleDetailView(DetailView):
     model = Article
     fields = ('image',)
     template_name = 'article_detail.html'

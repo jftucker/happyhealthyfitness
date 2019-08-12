@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <div class="article-entry">
+    <h2>Download the eBook</h2>
+      <p><a class="button btn-success" href="{% static 'pdfs/Drop_the_Weights.pdf' %}" download>Download</a></p>
+  </div>
+{% endblock content %}

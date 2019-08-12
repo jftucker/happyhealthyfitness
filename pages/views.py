@@ -65,5 +65,5 @@ class HomePageView(ListView):
             return redirect('home')
 
 
-#class EbookPageView(TemplateView):
-#    template = 'download.html'
+class EbookPageView(TemplateView):
+    template_name = 'ebook_download.html'
