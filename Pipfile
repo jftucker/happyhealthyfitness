@@ -21,6 +21,8 @@ django-rest-swagger = "*"
 django-ckeditor = "*"
 django-extra-views = "*"
 pillow = "*"
+django-heroku = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.7"
