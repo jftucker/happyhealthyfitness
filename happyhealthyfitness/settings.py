@@ -24,7 +24,7 @@ if os.path.isfile(dotenv_file):
     SECURE_SSL_REDIRECT = False
 else:
     DEBUG = True
-    SECURE_SSL_REDIRECT = False
+    SECURE_SSL_REDIRECT = True
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
