@@ -95,16 +95,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'happyhealthyfitness.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
 DATABASES = {}
+
 DATABASES['default'] = dj_database_url.config(conn_max_age=600)
-
-
-# Password validation
-# https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -139,7 +132,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
 
@@ -156,11 +149,17 @@ LOGOUT_REDIRECT_URL = 'home'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
 EMAIL_HOST = 'smtp.sendgrid.net'
+
 EMAIL_HOST_USER = 'apikey' # this is exactly the value 'apikey'
+
 EMAIL_HOST_PASSWORD = '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' # this is your API key
+
 EMAIL_PORT = 587
+
 EMAIL_USE_TLS = True
+
 DEFAULT_FROM_EMAIL = 'Webmaster from happyhealthy.fitness <webmaster@happyhealthy.fitness>' # this is the sendgrid email
 
 REST_FRAMEWORK = {
@@ -179,7 +178,7 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 
-SITE_ID = 2
+SITE_ID = 1
 
 LOGIN_REDIRECT_URL = 'home'
 
@@ -264,10 +263,15 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 ACCOUNT_EMAIL_REQUIRED = True
+
 ACCOUNT_USERNAME_REQUIRED = False
+
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+
 ACCOUNT_SESSION_REMEMBER = True
+
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
+
 ACCOUNT_UNIQUE_EMAIL = True
 
 django_heroku.settings(locals())
