@@ -222,9 +222,12 @@ body, html {
 <div class="w3-content w3-container w3-padding-64" id="contact">
   <h3 class="w3-center">Get your fitness journey started with our free eBook!</h3>
   <div class="w3-row w3-padding-32 w3-section w3-display-container">
-    <div class="w3-col m4 w3-container">
-      <img src="{% static 'images/profile2.jpg' %}" class="w3-image w3-round" style="width:100%">
-    </div>
+    <div class="w3-col m6 w3-panel">
+      <div class="w3-cell-row">
+        <div class="w3-cell" style="height:100%;width:50%;"><img src="{% static 'images/naomi.jpg' %}" class="w3-image" style="height:250px;width:250px;object-fit: cover"></div>
+        <div class="w3-cell" style="height:100%;width:50%;"><img src="{% static 'images/josef.jpg' %}" class="w3-image" style="height:250px;width:250px;object-fit: cover"></div>
+      </div>
+      </div>
     <div class="w3-col m6 w3-panel">
       <form method="post">
         {% csrf_token %}
